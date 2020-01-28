@@ -1,4 +1,5 @@
 FROM golang:1.12
+LABEL maintainer="giangoular1994@gmail.com"
 
 ENV GO111MODULE=on
 
