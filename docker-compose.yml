@@ -1,0 +1,21 @@
+version: '3'
+volumes: 
+    dados:
+networks: 
+    database:
+    web:
+services: 
+    db:
+        image: postgres:11.6
+        volumes:
+            # Data's Volume
+            - dados:/var/lib/postgresql/data
+        networks:
+        - database
+    app:
+        image: golang:1.12
+        volumes:
+            - ./app:/app
+        working_dir: /app
+      
+
