@@ -24,7 +24,7 @@ services:
         ports:
             - '80:80' # expose 80 on host and sent to 80 in container
         volumes:
-            - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
         networks: 
             - web
     front:
