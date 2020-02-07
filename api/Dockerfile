@@ -3,7 +3,7 @@ LABEL maintainer="giangoular1994@gmail.com"
 
 ENV GO111MODULE=on
 
-WORKDIR /app
+WORKDIR /api
 
 COPY ./go.mod .
 
