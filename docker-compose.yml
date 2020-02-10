@@ -15,11 +15,12 @@ services:
         - database
     api:
         container_name: api-container
-        image: golang:1.12
+        build: ./api
         volumes:
             - ./api:/api
-        working_dir: /api
-        command: bash -c "cd /api && go mod download && go run main.go"
+        working_dir: /api    
+        ports:
+            - 8080:8080   
         networks: 
             - web
     front:

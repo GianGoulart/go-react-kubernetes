@@ -15,7 +15,7 @@ class App extends React.Component{
   }
 
   componentDidMount() {
-    axios.get('http:localhost/api/ping')
+    axios.get('http://localhost/api/ping')
       .then((res, err) => {
         alert(res)
         if(res.status === 200) {
