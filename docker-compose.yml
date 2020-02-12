@@ -34,7 +34,7 @@ services:
         ports:
           - 3000:3000
         volumes:
-          - ./web:/app
+          - ./src/:/app
         depends_on: 
             - nginx
         networks: 
