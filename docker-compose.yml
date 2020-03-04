@@ -6,6 +6,7 @@ networks:
     web:
 services: 
     db:
+        container_name: db-container
         image: postgres:11.6
         volumes:
             # Data's Volume
@@ -13,30 +14,24 @@ services:
         networks:
         - database
     api:
-        image: golang:1.12
+        container_name: api-container
+        build: ./api
         volumes:
-            - ./app:/app
-        working_dir: /app
-        networks: 
-            - web
-    nginx:
-        image: nginx:1.13 # this will use the latest version of 1.13.x
+            - ./api:/api
+        working_dir: /api    
         ports:
-            - '80:80' # expose 80 on host and sent to 80 in container
-        volumes:
-            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - 8080:8080   
         networks: 
             - web
     front:
-        build: ./front
+        container_name: front-container
+        build: ./front/build
         expose:
           - 3000
         ports:
-          - 3000:3000
+          - 3000:80
         volumes:
-          - ./src/:/app
-        depends_on: 
-            - nginx
+          - ./front/build:/front
         networks: 
             - web
-
+   

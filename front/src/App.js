@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 
-
+Object.assign()
 class App extends React.Component{
 
   constructor(props){
@@ -15,7 +15,7 @@ class App extends React.Component{
   }
 
   componentDidMount() {
-    axios.get('/api/ping')
+    axios.get('http://localhost/api/ping')
       .then((res, err) => {
         alert(res)
         if(res.status === 200) {
